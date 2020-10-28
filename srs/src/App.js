@@ -94,6 +94,8 @@ class App extends React.Component{
  
   }
 
+
+
    
   
   render(){
@@ -101,6 +103,35 @@ class App extends React.Component{
       <div>
         <div className="text-center">
         <Button onClick={()=>{this.handleModal()}} className="mt-3 mb-3 text-center"> New verse </Button>
+        <Router>
+          <div>
+            <ul>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
+              <li>
+              <Link to="/about">About</Link>
+              </li>
+              <li>
+              <Link to="/dashboard">Dashboard</Link>
+              </li>
+            </ul>
+
+
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/about">
+            <About />
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard />
+          </Route>
+        </Switch>
+
+          </div>
+        </Router>
         
         </div>
         <Modal show={this.state.showModal1}>
@@ -130,8 +161,10 @@ class App extends React.Component{
             <h2> Scripture Content</h2>
           <Button onClick={()=>{this.handleModalClose2()}}> X </Button>  
             </Modal.Header> 
-          <Modal.Body> 
+          <Modal.Body > 
             <Showcontent item={this.state.contentView} />
+
+            <Button className="text-center">  Read Chapter</Button>
                
           </Modal.Body>
           <Modal.Footer> 
@@ -139,7 +172,7 @@ class App extends React.Component{
           </Modal.Footer> 
 
         </Modal>
-
+    
         <div className="container">
           <div className=" text-center wrapper ">
             <ul>
@@ -156,12 +189,42 @@ class App extends React.Component{
           </div>
 
         </div>
+
+        
       </div>
     
     );
 
+    
+
   }
+  
 } 
+
+
+  function Home() {
+   return (
+     <div>
+       <h2>Home</h2>
+     </div>
+   );
+ }
+
+function About() {
+   return (
+     <div>
+       <h2>About</h2>
+     </div>
+   );
+ }
+ function Dashboard() {
+  return (
+    <div>
+      <h2>Dashboard</h2>
+    </div>
+  );
+}
+
 
 
 export default App;
