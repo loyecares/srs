@@ -1,0 +1,32 @@
+input{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+
+}
+textarea{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 90px;
+}
+
+input[type=submit]{
+    width: 40%;
+    margin: auto;
+    display: block;
+    text-align: center;
+    background-color: blue;
+    border: none;
+    color: #fff;
+}
+
+label{
+    font-weight: bold;
+    font-size: 20px;
+}
