@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Modal} from 'react-bootstrap';
 import './App.css';
 //create a component that displays data (scripture verses and title )
 class Verses extends React.Component{

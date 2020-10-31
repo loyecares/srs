@@ -10,7 +10,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useParams
 } from "react-router-dom"
 
 
@@ -26,7 +27,7 @@ class App extends React.Component{
         key: ''
       },
       contentView: '',
-      
+      currentKey:'',
      
       showModal1:false,
       showModal2:false  
@@ -47,7 +48,8 @@ class App extends React.Component{
     let getKeyValue = this.state.listOfVerse.find(singleVerse => singleVerse.key === content)
     this.setState({
       showModal2:!this.state.show,
-      contentView: getKeyValue.content
+      contentView: getKeyValue.content,
+      currentKey: content
        
     })
       
@@ -125,9 +127,9 @@ class App extends React.Component{
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
+          <Route path="/dashboard/1" component={Dashboard} />
+          <Route path='/dashboard/:id'> <Chapter />  </Route>
+            
         </Switch>
 
           </div>
@@ -162,10 +164,7 @@ class App extends React.Component{
           <Button onClick={()=>{this.handleModalClose2()}}> X </Button>  
             </Modal.Header> 
           <Modal.Body > 
-            <Showcontent item={this.state.contentView} />
-
-            <Button className="text-center">  Read Chapter</Button>
-               
+             <Showcontent item={this.state.contentView} id={this.state.currentKey}  closeModal={()=>{this.handleModalClose2()}}/>
           </Modal.Body>
           <Modal.Footer> 
          
